@@ -2,6 +2,7 @@
 Core-Java-1/
 eclipse-derived-120.xml
 eclipsePrefs.epf
+.metadata/
 
 *.class
 
