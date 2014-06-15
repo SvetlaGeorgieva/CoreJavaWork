@@ -1,5 +1,8 @@
 package com.hackbulgaria.corejava.exam1;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class DateLogger extends Logger {
 
     // Assigns the given level to the logger.
@@ -7,10 +10,19 @@ public class DateLogger extends Logger {
         super();
     }
     
+    public static String timeNowFormatted() {
+        Date timeNow = new Date();
+        //|22:14:01 14.06.2014|
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("|HH:mm:ss dd.MM.yyyy|");
+        String date = DATE_FORMAT.format(timeNow);
+        return date;
+    }
+    
     @Override
     protected void tryPrintLog(int messageLevel, String message) {
         if (messageLevel <= this.level) {
-            System.out.println("Level " + messageLevel + " => " + message );
+            String timeNow = DateLogger.timeNowFormatted();
+            System.out.println(timeNow + " " + messageLevel + " => " + message );
         }
     }
     
